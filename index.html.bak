@@ -1,9 +1,7 @@
-﻿<html manifest="cache.manifest">
+﻿<html manifest="Cache.manifest">
 <head>
-<meta charset="utf-8">
-<title>PS4 Exploit 9.00 & GoldHen v2.4b16.2</title>
-<style type="text/css">
- html, body{
+<style>
+    html, body{
 margin:auto;
 font-family:sans-serif;
 font-size:20px;
@@ -27,15 +25,15 @@ background-size:cover;
 }
  .content {
   width:80%;
-  height:8%;
+  height:15%;
   margin-left:7.5%;
   background:rgba(0,0,0,0.5);
   color:white;
-  margin-top:32%;
+  margin-top:30%;
   font-size:25px;
   text-align:center;
   border-radius:30px;
-  padding-top:25px;
+  padding:20px;
   line-height:12px;
  }
  .title {
@@ -100,7 +98,9 @@ background-size:cover;
  -webkit-filter:hue-rotate(360deg);
  }
  }
-
+ .text {
+  padding-bottom:50px;
+ }
   .back {
    font-size:25px;
    margin-top:10px;
@@ -184,12 +184,16 @@ opacity:0.7;
  font-size:17px;
 }
 .pointer {cursor: pointer;}
-</style>
+
+
+    </style>
 <script>
-window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Page Caching Started!!";};
+window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Кэширование Началось!!";};
 window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML=(Math.round(100*(a.loaded/a.total)))+"%";};
-window.applicationCache.oncached=function(e){document.getElementById("progress").innerHTML="Page Cached Successfully!!";setTimeout(function(){document.getElementById("progress").innerHTML="Reopen the Page !!"; }, 1500);localStorage.cachedG="yes";};
-</script>
+window.applicationCache.oncached=function(e){document.getElementById("progress").innerHTML="Страница Успешно Кэшировалась!!";setTimeout(function(){document.getElementById("progress").innerHTML="Откройте Страницу Заново !!"; }, 1500);localStorage.cachedG="yes";};
+</script>	
+<meta charset="utf-8">
+<title>Взлом PS4 для прошивок 9.00 V8.0 на базе GoldHen V2.4b14</title>
 <script>
 function loadBIN(){
 			var xhr = new XMLHttpRequest();
@@ -224,6 +228,8 @@ function SendPayload() {
 }
 
 function jbdone() {
+//progress.innerHTML="Загружается Goldhen 2.4b14... Пожалуйста подождите";
+//LoadedMSG="GoldHEN 2.4b5 - установлен";
 goldhen21();
 }
 
@@ -232,19 +238,20 @@ window.progress.innerHTML= LoadedMSG
 }
 
 function goldhen21(){
-    progress.innerHTML="Загружается GoldHen v2.4b16.2... Пожалуйста подождите";
-    LoadedMSG="GoldHen v2.4b16.2 - загружен";
-    PLfile = "goldhen_2.4_b16.2_900.bin";
+    progress.innerHTML="Загружается Goldhen 2.4b14... Пожалуйста подождите";
+    LoadedMSG="GoldHEN 2.4b14 - загружен";
+    PLfile = "goldhen_2.4b14.bin";
     setTimeout(loadBIN,1000);
 }
 </script>
 </head>
 <body onload="if(localStorage.cachedG=='yes')setTimeout(poc,50);" style='background-color:#1A1920'>
-<h1 style='text-shadow: 4px 4px 4px black;font-size:30px;text-align:center;text-shadow: 4px 4px 4px black;color:yellow;margin-top:1%;'>Взлом PS4 для прошивок 9.00 на базе GoldHen v2.4b16.2</h1>
+<h1 style='text-shadow: 4px 4px 4px black;font-size:30px;text-align:center;text-shadow: 4px 4px 4px black;color:yellow;margin-top:1%;'>Взлом PS4 для прошивок 9.00 V8.0 на базе GoldHen V2.4b14</h1>
 <h1 id="progress" style="font-size:25px;text-align:center;text-shadow: 4px 4px 4px black;color:white;">Запускается эксплойт, подождите!</h1>
 <div class="content" >
  	    <div class="text" >
- 	        <br><span style="text-shadow: 4px 4px 4px black;" class="yellow" >Редактировал: </span>&nbsp;&nbsp; <span style="text-shadow: 4px 4px 4px black;" class="hue" >Lincoln</span>
+ 	        <br><span style="text-shadow: 4px 4px 4px black;" class="yellow" >Редактировал: </span >&nbsp;&nbsp; <span style="text-shadow: 4px 4px 4px black;" class="hue" >Lincoln</span>
+ 	        <br><br><br><br><span style="text-shadow: 4px 4px 4px black;" class="yellow" >Не забываем благодарить: </span >&nbsp;&nbsp; <a style="font-size:30px;text-align:center;text-shadow: 4px 4px 4px black;color:white;">Lincoln, Sleirsgoevy, SiSTRo</a>
 	    </div>
 </div>
 <script>
@@ -1150,7 +1157,7 @@ var trigger_spray = function () {
             chain.fcall(patch_buffer, p.read8(KERNEL_BASE_PTR));
             chain.fcall(window.syscalls[73], patch_buffer, 0x4000);
             chain.run();
-            alert("Все готово. После появления уведомления можете нажать OK и извлечь флэшку. Приятной игры!");
+            alert("Все готово, теперь нажать OK. После появления увидомления о активации GoldenHEN можете извлечь флэшку. Приятной игры!");
             setTimeout(jbdone, 1000);
         }
         else
